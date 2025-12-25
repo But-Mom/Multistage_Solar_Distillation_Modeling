@@ -1,11 +1,10 @@
-# Multistage_Solar_Distillation_Modeling
+# Heat and Mass Transfer Modeling for Multistage Solar Distillation 
 Predict water productivity of an MSD module with inputs from environmental factors (wind, atm transmittance, solar flux, ambient temperature) and top insulation configurations. 
 
 This code simulates heat and mass transfer in multi-stage solar distillation (MSD) modules. It calculates water productivity, efficiency, and temperature of each stage for various operating conditions and design 
 parameters. 
-================================================================================
-1. SYSTEM REQUIREMENTS 
-================================================================================
+
+## 1. SYSTEM REQUIREMENTS 
 
 1.1 Dependencies
 -------------------------
@@ -27,9 +26,8 @@ The code requires spectral transmittance data files, which are provided in the /
   - Glass_3mm_transmittance.csv 
   - PMMA_3mm_transmittance.csv
 
-================================================================================
-2. INSTALLATION GUIDE
-================================================================================
+
+## 2. INSTALLATION GUIDE
 
 2.1 Installing Python and Dependencies
 ---------------------------------------
@@ -50,22 +48,8 @@ Option B: Using pip
 
 2.2 Downloading the Code
 -----------------------------
-1. Download all files to a local directory, maintaining folder structure:
-   
-   project_folder/
-   ├── notebooks/
-   │   ├── Demo.ipynb
-   │   ├── MSD_NoCover.ipynb
-   │   ├── MSD_Aerogel.ipynb
-   │   ├── MSD_Glass.ipynb
-   │   └── MSD_PMMA.ipynb
-   ├── data/
-   │   ├── AG_transmittance.csv
-   │   ├── Glass_3mm_transmittance.csv
-   │   └── PMMA_3mm_transmittance.csv
-   ├── results/
-   │   └── [output files will be saved here]
-   └── README.txt (this file)
+Download all files to a local directory, maintaining folder structure
+
 
 2.3 Typical Installation Time
 ------------------------------
@@ -75,9 +59,7 @@ Option B: Using pip
 
 No compilation is required. The code runs directly in Jupyter notebooks.
 
-================================================================================
-3. DEMO
-================================================================================
+## 3. DEMO
 
 3.1 Quick Start Demo
 --------------------
@@ -135,9 +117,8 @@ Expected Files Generated:
 Expected Run Time: 
 - Total demo: 1 second
 
-================================================================================
-4. INSTRUCTIONS FOR USE
-================================================================================
+
+## 4. INSTRUCTIONS FOR USE
 
 4.1 Basic Usage - Reproducing Figure 3 (for all) and Figure S15 (for no cover and glass) 
 ------------------------------------
@@ -159,9 +140,8 @@ Results are saved as CSV files in the results/ folder with format:
 
 Sample result CSV files are pre-saved in the results/ folder.
 
-================================================================================
-5. LICENSE AND ACKNOWLEDGMENTS
-================================================================================
+
+## 5. LICENSE AND ACKNOWLEDGMENTS
 
 License: MIT
 
@@ -170,6 +150,5 @@ Acknowledgments:
 - Atmospheric transmission data from UKIRT. The atmospheric transmission versus wavelength for Mauna Kea was produced using the program IRTRANS4 with the following parameters — Altitude: 4200m. Airmass: 1.0. H2O column: 1.2mm. Resolving power: 3000 
 
 
-================================================================================
 END OF README
-================================================================================
+
