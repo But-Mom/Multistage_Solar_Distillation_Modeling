@@ -4,6 +4,8 @@ Predict water productivity of an MSD module with inputs from environmental facto
 This code simulates heat and mass transfer in multi-stage solar distillation (MSD) modules. It calculates water productivity, efficiency, and temperature of each stage for various operating conditions and design 
 parameters. 
 
+<details><summary>Click to expand system requirements and installation guide. </summary>
+
 ## 1. SYSTEM REQUIREMENTS 
 
 1.1 Dependencies
@@ -58,6 +60,7 @@ Download all files to a local directory, maintaining folder structure
 - Total time: ~30-40 minutes on a standard desktop computer
 
 No compilation is required. The code runs directly in Jupyter notebooks.
+</details>
 
 ## 3. DEMO
 
@@ -114,8 +117,7 @@ Expected Files Generated:
 - No files are generated for demo. 
 - For other notebooks, generated summary files will be stored in the /results/ folder.
 
-Expected Run Time: 
-- Total demo: 1 second
+Expected Run Time: 1 second
 
 3.3 Parametric study -- getting your hands a bit dirty
 -------------------
@@ -127,10 +129,10 @@ params = {
     # ... other parameters
 }
 ```
-To change the condition from indoor to outdoor (where sky cooling is present):
+To change the condition from outdoor to indoor (where sky cooling is absent):
 ```python
 params = {
-    "condition": 'outdoor',            
+    "condition": 'indoor',            
     # ... other parameters
 }
 ```
