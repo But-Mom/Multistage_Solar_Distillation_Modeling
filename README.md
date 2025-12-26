@@ -68,15 +68,15 @@ This demo runs a simple 6-stage simulation with default parameters.
 Instructions:
 1. Navigate to the project folder
 2. Launch Jupyter:
-   - Anaconda: jupyter notebook
+   - Anaconda: jupyter notebook 
    - Or use: jupyter lab
-3. Open: notebooks/Demo.ipynb
-4. Click "Cell" → "Run All" (or press Shift+Enter on each cell)
+3. Open: demo.ipynb
+4. Click "Run" → "Run All" (or press Shift+Enter on each cell)
 
 3.2 Expected Output
 -------------------
 The demo will:
-- Simulate a 6-stage solar still with 6 mm aerogel cover under outdoor 2 m/s wind, 1kW/m2 solar flux, 25°C condition
+- Simulate a 6-stage solar still with 6 mm aerogel cover under outdoor 2 m/s wind, 1kW/m² solar flux, 25°C condition
 - Calculate water productivity, evaporator and condenser temperature for each stage 
 - Display convergence information
 
@@ -117,10 +117,66 @@ Expected Files Generated:
 Expected Run Time: 
 - Total demo: 1 second
 
+3.3 Parametric study -- getting your hands a bit dirty
+-------------------
+To model MSD performance under different environmental conditions or module parameters, modify simulation parameters in the "params" cell. 
+For instance, to change the solar flux from 1000 to 500 W/m² :
+```python
+params = {
+    "q_sun": 500,           # Solar flux (W/m²)
+    # ... other parameters
+}
+```
+To change the condition from indoor to outdoor (where sky cooling is present):
+```python
+params = {
+    "condition": 'outdoor',            
+    # ... other parameters
+}
+```
+Change the ambient temperature, and the code will update air properties, convective heat transfer coefficient (h_a), and backwall temperature (T_b_c). In this model, the backwall temperature is set to be 5°C higher than the ambient temperature.
+```python
+params = {
+    "T_amb_c": 25,           # Ambient air temperature (Celsius)      
+    # ... other parameters
+}
+```
+Change the wind speed, and the code will update convective heat transfer coefficient (h_a) accordingly:
+```python
+params = {
+    "v": 6.0,                # Wind speed (m/s)      
+    # ... other parameters
+}
+```
+You can also modify the module parameters such as width, unit stage thickness, or the thickness of sidewall insulation:
+```python
+params = {
+    "a": 1.2,               # Device width (m)
+    "b": 0.005,             # Unit stage thickness (m)
+    "t_ins": 0.005,           # Insulation thickness (m)            
+    # ... other parameters
+}
+```
+To change stage number, adjust ```number of stages``` in the last cell:
+```python
+# --- Run the Simulation ---
+if __name__ == "__main__":
+    number_of_stages = 6  
+    run_multistage_simulation(number_of_stages, params)
+```
+
+The demo allows the following aerogel thicknesses: 0 (no aerogel insulation), 2 mm, 4 mm, 6 mm, 8 mm, 12 mm. Due to lack of transmittance data, other thickness values are not accepted (for now). In the future, we may update the transmittance function based on thickness input. 
+To change aerogel thickness, adjust the following parameter:
+```python
+params = {
+    "t_ag": 0.006,           # Aerogel thickness (m); you can change it to the following values: [0, 0.002, 0.004, 0.006, 0.008, 0.012]     
+    # ... other parameters
+}
+```
 
 ## 4. INSTRUCTIONS FOR USE
 
-4.1 Basic Usage - Reproducing Figure 3 (for all) and Figure S15 (for no cover and glass) 
+4.1 Basic Usage - Reproducing Figure 3 (for all configurations) and Figure S15 (for no cover and glass) 
 ------------------------------------
 
 Step 1: Open a notebook
